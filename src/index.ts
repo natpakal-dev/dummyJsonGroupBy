@@ -38,7 +38,7 @@ const fetchUsers = async (): Promise<User[]> => {
 const transformData = (users: User[]): TransformedData => {
     const groupedData: TransformedData = {};
 
-    users.forEach(({ firstName, lastName, gender, age, hair, company, address }) => {
+    users.forEach(({ firstName, lastName, gender, hair, company, address }) => {
         const department = company.department;
         if (!groupedData[department]) {
             groupedData[department] = { male: 0, female: 0, ageRange: '', hair: {}, addressUser: {} };
