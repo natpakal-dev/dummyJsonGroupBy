@@ -1,8 +1,5 @@
-import express from 'express';
 import axios from 'axios';
 
-const app = express();
-const PORT = 3000;
 const API_URL = 'https://dummyjson.com/users';
 
 interface User {
@@ -59,15 +56,5 @@ const transformData = (users: User[]): TransformedData => {
 
     return groupedData;
 };
-
-app.get('/transformed-data', async (req, res) => {
-    const users = await fetchUsers();
-    const transformedData = transformData(users);
-    res.json(transformedData);
-});
-
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
 
 export { fetchUsers, transformData };
